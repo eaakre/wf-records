@@ -39,22 +39,25 @@ const timeTitle = document.getElementById('time-title');
 goBtn.addEventListener('click', function(){
   let newSheet = selectedGender.value + ' ' + selectedEvent.value
   
-  // newRange will be used to display top 10, 25, and 50
-  let newRange = Number(selectedList.value) + 1;
-
-  // When using times for 800+ meters, the time format doesn't sort well
-  // sprints use the first sort method in the loadList function
+  // When using times for 800+ meters and field events, the time/distance format doesn't sort well
   // Need to differentiate between sprints/distance/field
-  let sprint = true;
-  if (selectedEvent.value == 800 || selectedEvent.value == 1600 || selectedEvent.value == 3200) {
-    sprint = false;
-  }
+  let eventType = ''; // will add this to the loadList function call
+  let sprints = ['100', '200', '400', '100H', '110H', '300H'];
+  let distance = ['800', '1600', '3200'];
+  let field = ['SP', 'Disc', 'Jav', 'HJ', 'PV', 'LJ', 'TJ'];
 
+  if (sprints.includes(selectedEvent.value)) {
+    eventType = "sprint";
+  } else if (distance.includes(selectedEvent.value)) {
+    eventType = "distance";
+  } else {
+    eventType = "field"
+  }
   // call loadList function.
-  loadList(newSheet, sprint)
+  loadList(newSheet, eventType)
 })
 
-function loadList(newEvent, sprint) {
+function loadList(newEvent, type) {
   // Change workbooks in Google Sheets 
   SHEET_TITLE = newEvent
 
@@ -93,15 +96,23 @@ function loadList(newEvent, sprint) {
     // If it is a sprint (100, 200, 400)
     // anything around a minute or less...this should include 4x100 relay
     // Need to differentiate between sprints/distance/field
-    if (sprint) {
+    if (type == 'sprint') {
       array.sort((a, b) => {
         return parseFloat(a.c[2].v) - parseFloat(b.c[2].v)
       })
-    } else {
+    } else if (type == 'distance') {
       // for the distance events...this should also include relays that will last longer than a minute
       array.sort((a, b) => {
         return a.c[2].v.localeCompare(b.c[2].v)
       });
+    } else {
+      array.sort((a, b) => {
+        const valueA = parseFloat(a.c[2].v.replace(/['"]/g, '').trim());
+        const valueB = parseFloat(b.c[2].v.replace(/['"]/g, '').trim());
+      
+        return valueB - valueA;
+      });
+      
     }
 
     // loop through the array and append into the records div
