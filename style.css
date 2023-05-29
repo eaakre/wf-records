@@ -59,7 +59,7 @@ button:active {
 
 @media only screen and (max-width: 600px) {
   body {
-    margin: 2em 1em 3em 1em;
+    margin: 2em 1.5em 3em 1.5em;
   }
 
   .selection {
@@ -78,12 +78,12 @@ button:active {
 
   .grid {
     display: grid;
-    grid-template-columns: .1fr 1fr .4fr .5fr;
+    grid-template-columns: .1fr 1fr .4fr .25fr;
     min-width: 300px;
     margin: .5em 0 1em 0;
   }
 
   #grid-title {
-    grid-template-columns: 1fr .5fr .35fr;
+    grid-template-columns: 1.1fr .4fr .25fr;
   }
 }
