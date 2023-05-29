@@ -2,28 +2,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  margin: 2em 3em;
+  margin: 1em 3em;
+  font-size: larger;
 }
 
 .selection {
   display: flex;
-  margin: 1em 0;
   justify-content: space-around;
 }
 
-
 button, select {
-  min-width: 150px;
   height: 50px;
   color: rgb(29, 90, 29);
   border-radius: 1em;
+  font-size: x-large;
   cursor: pointer;
+  text-align: center;
+}
+
+select {
+  min-width: 100px;
 }
 
 button {
+  min-width: 200px;
   background-color: rgb(20, 131, 14);
   color: white;
   font-size: larger;
@@ -37,7 +43,7 @@ button:active {
 
 #event-title {
   text-align: center;
-  margin: 1em;
+  margin: .5em;
 }
 
 .grid {
@@ -57,19 +63,21 @@ button:active {
   border: 2px solid black;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    margin: 2em 1.5em 3em 1.5em;
-  }
-
+@media only screen and (max-width: 750px) {
   .selection {
     display: block;
-    margin: 2em 0;
+    margin: 1em 0;
   }
 
   button, select {
     width: 100%;
     margin: 1em 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 2em 1.5em 3em 1.5em;
   }
 
   #rank-title {
