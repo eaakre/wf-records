@@ -15,6 +15,19 @@ const selectedEvent = document.getElementById('event-select');
 const selectedList = document.getElementById('list-select');
 const goBtn = document.getElementById('go-button');
 const eventTitle = document.getElementById('event-title');
+const girls100H = document.getElementById('100H');
+const boys110H = document.getElementById('110H');
+
+// Update Event dropdown menu for 100/110 Hurdles
+selectedGender.addEventListener('change', function(){
+  if (selectedGender.value == "Womens") {
+    girls100H.style.display = 'block';
+    boys110H.style.display = 'none';
+  } else {
+    girls100H.style.display = 'none';
+    boys110H.style.display = 'block';
+  }
+})
 
 // Divs to fill with records
 const gridData = document.getElementById('grid-data')
@@ -31,6 +44,7 @@ goBtn.addEventListener('click', function(){
 
   // When using times for 800+ meters, the time format doesn't sort well
   // sprints use the first sort method in the loadList function
+  // Need to differentiate between sprints/distance/field
   let sprint = true;
   if (selectedEvent.value == 800 || selectedEvent.value == 1600 || selectedEvent.value == 3200) {
     sprint = false;
@@ -75,9 +89,10 @@ function loadList(newEvent, sprint) {
 
     // Sort array so that the records are in order
     let array = data.table.rows;
-    
+
     // If it is a sprint (100, 200, 400)
     // anything around a minute or less...this should include 4x100 relay
+    // Need to differentiate between sprints/distance/field
     if (sprint) {
       array.sort((a, b) => {
         return parseFloat(a.c[2].v) - parseFloat(b.c[2].v)
