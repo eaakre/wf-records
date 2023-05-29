@@ -58,6 +58,10 @@ button:active {
 }
 
 @media only screen and (max-width: 600px) {
+  body {
+    margin: 2em 1em 3em 1em;
+  }
+
   .selection {
     display: block;
     margin: 2em 0;
