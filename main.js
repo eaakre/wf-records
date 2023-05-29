@@ -14,6 +14,7 @@ const selectedGender = document.getElementById('gender-select');
 const selectedEvent = document.getElementById('event-select');
 const selectedList = document.getElementById('list-select');
 const goBtn = document.getElementById('go-button');
+const eventTitle = document.getElementById('event-title');
 
 // Divs to fill with records
 const gridData = document.getElementById('grid-data')
@@ -39,7 +40,6 @@ goBtn.addEventListener('click', function(){
   loadList(newSheet, sprint)
 })
 
-
 function loadList(newEvent, sprint) {
   // Change workbooks in Google Sheets 
   SHEET_TITLE = newEvent
@@ -48,6 +48,9 @@ function loadList(newEvent, sprint) {
   nameTitle.innerHTML = ''
   yearTitle.innerHTML = ''
   timeTitle.innerHTML = ''
+
+  // Replace H1 tag with selected event
+  eventTitle.innerHTML = newEvent;
   while (gridData.hasChildNodes()) {
     gridData.removeChild(gridData.firstChild);
   }
@@ -72,6 +75,7 @@ function loadList(newEvent, sprint) {
 
     // Sort array so that the records are in order
     let array = data.table.rows;
+    
     // If it is a sprint (100, 200, 400)
     // anything around a minute or less...this should include 4x100 relay
     if (sprint) {

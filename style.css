@@ -76,7 +76,7 @@ button:active {
     display: grid;
     grid-template-columns: .1fr 1fr .4fr .5fr;
     min-width: 300px;
-    margin: .5em 0;
+    margin: .5em 0 1em 0;
   }
 
   #grid-title {
