@@ -66,15 +66,13 @@ button:active {
 @media only screen and (max-width: 750px) {
   .selection {
     display: block;
-    margin: 1em 0;
+    margin: .5em 0;
   }
 
   button, select {
     width: 100%;
     margin: .5em 0;
-  }
-  button, select {
-    height: 40px;
+    height: 30px;
     border-radius: 1em;
     font-size: large;
   }
@@ -82,7 +80,7 @@ button:active {
 
 @media only screen and (max-width: 600px) {
   body {
-    margin: 2em 1.5em 3em 1.5em;
+    margin: 1.5em;
   }
 
   #rank-title {
