@@ -43,6 +43,8 @@ select {
 }
 
 #go-button {
+  min-width: 200px;
+  font-size: 20px;
   padding: 10px 20px;
   border-radius: 4px;
   background-color: #046e00;
