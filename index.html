@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+  <!-- <script src="script.js" defer></script>
+  <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js" defer></script> -->
+  <title>West Fargo Track & Field - Top 10 Lists</title>
+</head>
+<body>
+  <div class="selection">
+    <div class="gender-div">
+      <label for="gender-select">Select Gender: </label>
+      <select name="gender" id="gender-select">
+        <option value="Mens">Mens</option>
+        <option value="Womens">Womens</option>
+      </select>
+    </div>
+    
+    <div class="event-div">
+      <label for="event-select">Select Event: </label>
+      <select name="event" id="event-select">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="400">400</option>
+        <option value="800">800</option>
+        <option value="1600">1600</option>
+        <option value="3200">3200</option>
+        <option value="100/110H">100/110H</option>
+        <option value="300H">300H</option>
+      </select>
+    </div>
+  
+    <div class="list-div">
+      <label for="list-select">Select List: </label>
+      <select name="list" id="list-select">
+        <option value="10">Top 10</option>
+        <option value="25">Top 25</option>
+        <option value="50">Top 50</option>
+      </select>
+    </div>
+  
+    <button id="go-button">Go!</button>
+  </div>
+  
+  <h1 id="event-title">Mens 100</h1>
+
+  <div id="grid-title" class="grid-title">
+    <div id="rank-title">Rank</div>
+    <div id="name-title">Name</div>
+    <div id="year-title">Year</div>
+    <div id="time-title"></div>
+  </div>
+  <div class="line"></div>
+  <div id="grid-data" class="grid">
+    <div id="rank"></div>
+    <div id="name"></div>
+    <div id="year"></div>
+    <div id="time"></div>
+  </div>
+</body>
+</html>
