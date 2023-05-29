@@ -71,7 +71,12 @@ button:active {
 
   button, select {
     width: 100%;
-    margin: 1em 0;
+    margin: .5em 0;
+  }
+  button, select {
+    height: 40px;
+    border-radius: 1em;
+    font-size: large;
   }
 }
 
