@@ -11,6 +11,12 @@ body {
   padding: 20px;
 }
 
+h1#page-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .selection {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +51,7 @@ select {
   cursor: pointer;
 }
 
-h1#event-title {
+h2#event-title {
   font-size: 24px;
   margin-bottom: 10px;
 }
